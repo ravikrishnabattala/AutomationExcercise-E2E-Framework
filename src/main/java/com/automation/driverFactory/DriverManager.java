@@ -12,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
+import java.util.Collections;
 import java.util.Set;
 
 public class DriverManager {
@@ -22,11 +23,14 @@ public class DriverManager {
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static void initDriver() {
-        ChromeOptions chromeOptions = new ChromeOptions();
-//        chromeOptions.addArguments("");
+
         String browser = ConfigReader.getProperty("browser").toLowerCase();
         switch (browser) {
             case "chrome": {
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+                chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+                chromeOptions.setExperimentalOption("useAutomationExtension", false);
                 driver.set(new ChromeDriver(chromeOptions));
                 break;
             }
