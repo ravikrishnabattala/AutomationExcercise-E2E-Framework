@@ -27,7 +27,6 @@ public class TestListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
         if (ITestResult.FAILURE == result.getStatus()) {
-            System.out.println("ravi krishna");
             ScreenshotUtils.takeScreenshot(
                     "failure_"+result.getName()
             );

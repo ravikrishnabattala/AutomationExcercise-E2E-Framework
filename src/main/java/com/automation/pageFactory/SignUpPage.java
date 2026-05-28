@@ -14,9 +14,9 @@ public class SignUpPage extends Base {
         this.driver = driver;
     }
 
-    public void registerUser() {
+    public SignUpPage registerUser() {
         driver.findElement(By.cssSelector("[value='Mr']")).click();
-        driver.findElement(By.id("password")).sendKeys("Krish@1269");
+        driver.findElement(By.id("password")).sendKeys("12345678");
 
         WebElement daysElement = driver.findElement(By.id("days"));
         Select daysSelect = new Select(daysElement);
@@ -43,6 +43,7 @@ public class SignUpPage extends Base {
         driver.findElement(By.id("mobile_number")).sendKeys("7893101744");
         driver.findElement(By.xpath("//button[@data-qa='create-account']")).click();
         driver.findElement(By.xpath("//a[text()='Continue']")).click();
+        return this;
     }
 
 }

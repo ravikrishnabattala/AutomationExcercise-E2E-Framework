@@ -2,6 +2,7 @@ package tests;
 
 import com.automation.base.Base;
 import com.automation.listeners.TestListener;
+import com.automation.pageFactory.AddCartPage;
 import com.automation.pageFactory.LoginPage;
 import com.automation.pageFactory.SignUpPage;
 import org.testng.annotations.Listeners;
@@ -25,7 +26,27 @@ public class TestCases extends Base {
 
     // Update account information (if editable) OR delete the account and validate deletion
     @Test
-    public void updateInfo(){
-
+    public void updateInfo() {
+        new LoginPage(driver).signUp();
+        new SignUpPage(driver).registerUser();
+        new LoginPage(driver).deleteAccount();
     }
+
+    // Add at least one product to the cart
+    @Test
+    public void addToCart() {
+        new LoginPage(driver).login();
+        new AddCartPage(driver).addItemsToCart("Blue Top");
+    }
+
+    // Proceed to checkout and validate order summary details
+    @Test
+    public void summaryDetails()  {
+        new LoginPage(driver).login();
+        new AddCartPage(driver)
+                .openCart()
+                .checkOut()
+                .validateDetails();
+    }
+
 }
