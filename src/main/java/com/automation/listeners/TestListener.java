@@ -17,7 +17,6 @@ public class TestListener implements ITestListener {
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
         if (ITestResult.SUCCESS == result.getStatus()) {
-            System.out.println("ravi krishna");
             ScreenshotUtils.takeScreenshot(
                     "success_"+result.getName()
             );
@@ -26,7 +25,6 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("ravi krishna 1");
         ITestListener.super.onTestFailure(result);
         if (ITestResult.FAILURE == result.getStatus()) {
             System.out.println("ravi krishna");
