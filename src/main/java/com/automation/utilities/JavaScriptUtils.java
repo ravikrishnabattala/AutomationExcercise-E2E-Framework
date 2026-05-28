@@ -8,7 +8,6 @@ public class JavaScriptUtils{
 
     public void click(WebElement element) {
 
-        WaitUtils.
         scroll(element);
         JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
         js.executeScript(
