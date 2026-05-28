@@ -1,6 +1,6 @@
 package tests;
 
-import com.automation.base.Base;
+import com.automation.hook.Hook;
 import com.automation.listeners.TestListener;
 import com.automation.pageFactory.AddCartPage;
 import com.automation.pageFactory.LoginPage;
@@ -9,41 +9,41 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestListener.class)
-public class TestCases extends Base {
+public class TestCases extends Hook {
 
     //  Register a new user account.
     @Test
     public void registerUser() {
-        new LoginPage(driver).signUp();
-        new SignUpPage(driver).registerUser();
+        new LoginPage().signUp();
+        new SignUpPage().registerUser();
     }
 
     // Log in with the created account.
     @Test
     public void loginApplication() {
-        new LoginPage(driver).login();
+        new LoginPage().login();
     }
 
     // Update account information (if editable) OR delete the account and validate deletion
     @Test
     public void updateInfo() {
-        new LoginPage(driver).signUp();
-        new SignUpPage(driver).registerUser();
-        new LoginPage(driver).deleteAccount();
+        new LoginPage().signUp();
+        new SignUpPage().registerUser();
+        new LoginPage().deleteAccount();
     }
 
     // Add at least one product to the cart
     @Test
     public void addToCart() {
-        new LoginPage(driver).login();
-        new AddCartPage(driver).addItemsToCart("Blue Top");
+        new LoginPage().login();
+        new AddCartPage().addItemsToCart("Blue Top");
     }
 
     // Proceed to checkout and validate order summary details
     @Test
-    public void summaryDetails()  {
-        new LoginPage(driver).login();
-        new AddCartPage(driver)
+    public void summaryDetails() {
+        new LoginPage().login();
+        new AddCartPage()
                 .openCart()
                 .checkOut()
                 .validateDetails();

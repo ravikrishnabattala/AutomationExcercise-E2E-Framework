@@ -11,9 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
-public class waitUtils {
+public class WaitUtils {
 
-    private waitUtils() {
+    private WaitUtils() {
     }
 
     public static void waitForVisibility(WebElement element) {

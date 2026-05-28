@@ -1,14 +1,17 @@
 package com.automation.pageFactory;
 
-import com.automation.base.Base;
+import com.automation.driverFactory.DriverManager;
+import com.automation.utilities.JavaScriptUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class SignUpPage extends Base {
+public class SignUpPage {
 
     private final WebDriver driver;
+
+    private final JavaScriptUtils js;
 
     private final By titleMrRadioBtn = By.cssSelector("[value='Mr']");
 
@@ -44,12 +47,13 @@ public class SignUpPage extends Base {
 
     private final By continueBtn = By.xpath("//a[text()='Continue']");
 
-    public SignUpPage(WebDriver driver) {
-        this.driver = driver;
+    public SignUpPage() {
+        this.driver = DriverManager.getDriver();
+        this.js = new JavaScriptUtils();
     }
 
     public SignUpPage registerUser() {
-        driver.findElement(titleMrRadioBtn).click();
+        js.click(driver.findElement(titleMrRadioBtn));
         driver.findElement(passwordField).sendKeys("12345678");
 
         WebElement daysElement = driver.findElement(daysDropdown);
@@ -64,8 +68,8 @@ public class SignUpPage extends Base {
         Select yearsSelect = new Select(yearsElement);
         yearsSelect.selectByValue("2002");
 
-        driver.findElement(newsletterCheckbox).click();
-        driver.findElement(specialOfferCheckbox).click();
+        js.click(driver.findElement(newsletterCheckbox));
+        js.click(driver.findElement(specialOfferCheckbox));
 
         driver.findElement(firstNameField).sendKeys("Ravi");
         driver.findElement(lastNameField).sendKeys("krishna");

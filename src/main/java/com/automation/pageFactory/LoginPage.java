@@ -1,12 +1,16 @@
 package com.automation.pageFactory;
 
+import com.automation.driverFactory.DriverManager;
 import com.automation.utilities.ConfigReader;
+import com.automation.utilities.JavaScriptUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 
     private final WebDriver driver;
+
+    private final JavaScriptUtils js;
 
     private final By loginPageBtn = By.cssSelector("a[href='/login']");
 
@@ -26,13 +30,14 @@ public class LoginPage {
 
     private final By continueBtn = By.xpath("//a[text()='Continue']");
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
+    public LoginPage() {
+        this.js = new JavaScriptUtils();
+        this.driver = DriverManager.getDriver();
     }
 
     public LoginPage signUpIn() {
         driver.get(ConfigReader.getProperty("base.url"));
-        driver.findElement(loginPageBtn).click();
+        js.click(driver.findElement(loginPageBtn));
         return this;
     }
 
@@ -41,7 +46,7 @@ public class LoginPage {
         signUpIn();
         driver.findElement(signUpName).sendKeys("Ravi Krishna");
         driver.findElement(signUpEmail).sendKeys("ravikrishna@gmail.com");
-        driver.findElement(signUpBtn).click();
+        js.click(driver.findElement(signUpBtn));
         return this;
     }
 
@@ -49,13 +54,13 @@ public class LoginPage {
         signUpIn();
         driver.findElement(loginEmail).sendKeys("ravikrishnabattala@gmail.com");
         driver.findElement(loginPassword).sendKeys("12345678");
-        driver.findElement(loginBtn).click();
+        js.click(driver.findElement(loginBtn));
         return this;
     }
 
     public LoginPage deleteAccount(){
-        driver.findElement(deleteAccountBtn).click();
-        driver.findElement(continueBtn).click();
+        js.click(driver.findElement(deleteAccountBtn));
+        js.click(driver.findElement(continueBtn));
         return this;
     }
 }
