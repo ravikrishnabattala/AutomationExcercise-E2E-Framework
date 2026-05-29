@@ -16,12 +16,13 @@ public class ScreenshotUtils {
     public static String takeScreenshot(String testName) {
         File source = ((TakesScreenshot) DriverManager.getDriver())
                         .getScreenshotAs(OutputType.FILE);
-        String path = "screenshots/" + testName + "_" + System.currentTimeMillis() + ".png";
+        String path = "test-output/screenshots/" + testName + "_" + System.currentTimeMillis() + ".png";
 
         try {
             FileUtils.copyFile(source, new File(path));
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
         return path;
     }

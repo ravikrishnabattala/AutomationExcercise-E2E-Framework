@@ -1,7 +1,7 @@
-# AutomationExcercise-E2E-Framework
+### AutomationExcercise-E2E-Framework
 This project contains end-to-end automation testing using Selenium, Java and TestNG
 
-##  Project Overview
+###  Project Overview
 
 This is an **End-to-End Test Automation Framework** built using:
 - Selenium WebDriver
@@ -14,7 +14,7 @@ It supports **cross-browser testing, parallel execution, and reporting**.
 
 ---
 
-## Tech Stack
+### Tech Stack
 
 - Java 17
 - Selenium 4+
@@ -26,7 +26,7 @@ It supports **cross-browser testing, parallel execution, and reporting**.
 
 ---
 
-## Project Structure
+### Project Structure
 
 ```text
 src
@@ -40,7 +40,7 @@ src
  ├── test/java/tests
  └── test/resources/testng.xml
 
-## ▶️ Run Tests
+##  Run Tests
 
 To execute all automation tests, use the following Maven command:
 

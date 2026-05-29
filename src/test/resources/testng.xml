@@ -2,11 +2,11 @@
 
 <suite name="AutomationSuite" parallel="methods" thread-count="2">
     <listeners>
-        <listener class-name="com.automation.listeners.TestListener"></listener>
+        <listener class-name="com.automation.listeners.TestListener"/>
     </listeners>
-    <test name="ChromeTests">
+    <test name="ApplicationTests">
         <classes>
-            <class name="tests.TestCases"/>
+            <class name="tests.ApplicationTests"/>
         </classes>
     </test>
 </suite>

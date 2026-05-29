@@ -1,11 +1,10 @@
 package com.automation.hook;
 
 import com.automation.driverFactory.DriverManager;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class Hook {
+public class BaseEngine {
 
     @BeforeMethod(alwaysRun = true)
     public void setUpDriver() {

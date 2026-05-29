@@ -6,6 +6,8 @@ import com.automation.utilities.JavaScriptUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Random;
+
 public class LoginPage {
 
     private final WebDriver driver;
@@ -45,7 +47,8 @@ public class LoginPage {
     public LoginPage signUp() {
         signUpIn();
         driver.findElement(signUpName).sendKeys("Ravi Krishna");
-        driver.findElement(signUpEmail).sendKeys("ravikrishna@gmail.com");
+        String email = "ravi" + System.currentTimeMillis() + "@gmail.com";
+        driver.findElement(signUpEmail).sendKeys(email);
         js.click(driver.findElement(signUpBtn));
         return this;
     }
@@ -58,7 +61,7 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage deleteAccount(){
+    public LoginPage deleteAccount() {
         js.click(driver.findElement(deleteAccountBtn));
         js.click(driver.findElement(continueBtn));
         return this;
