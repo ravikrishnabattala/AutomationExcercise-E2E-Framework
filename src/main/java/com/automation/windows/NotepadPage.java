@@ -62,7 +62,7 @@ public class NotepadPage {
         try {
             driver.findElement(AppiumBy.name(DONT_SAVE_BUTTON)).click();
         } catch (Exception e) {
-            driver.findElement(AppiumBy.name("不保存")).click();
+            driver.findElement(AppiumBy.name("not save")).click();
         }
     }
 
