@@ -14,4 +14,10 @@
             <class name="tests.NotepadAutomationTest"/>
         </classes>
     </test>
+    <test name="ReqRes API Tests">
+        <classes>
+            <class name="tests.UserCRUDTest"/>
+            <class name="tests.NegativeTest"/>
+        </classes>
+    </test>
 </suite>

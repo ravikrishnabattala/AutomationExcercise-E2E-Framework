@@ -1,16 +1,15 @@
 package tests;
 
 import com.automation.endpoints.UserEndpoints;
-import com.automation.hook.BaseEngine;
+import com.automation.hook.BaseAPIEngine;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static tests.UserCRUDTest.userId;
 
-public class NegativeTest extends BaseEngine {
+public class NegativeTest extends BaseAPIEngine {
 
     private static final String xAPIKey = "free_user_3EP3yNsBVK9L6ejDWfwwcxkO12Y";
 
@@ -22,6 +21,7 @@ public class NegativeTest extends BaseEngine {
                 .when()
                 .get("/unknownendpoint");
 
+        finalResponse = response.asPrettyString();
         Assert.assertEquals(response.statusCode(), 404);
     }
 
@@ -37,6 +37,7 @@ public class NegativeTest extends BaseEngine {
                 .when()
                 .post(UserEndpoints.CREATE_USER);
 
+        finalResponse = response.asPrettyString();
         JsonPath jsonPath = response.jsonPath();
         Assert.assertEquals(response.statusCode(), 400);
 
@@ -54,6 +55,7 @@ public class NegativeTest extends BaseEngine {
                 .when()
                 .get(UserEndpoints.GET_USER);
 
+        finalResponse = response.asPrettyString();
         Assert.assertEquals(response.statusCode(), 404);
     }
 
@@ -65,6 +67,7 @@ public class NegativeTest extends BaseEngine {
                 .when()
                 .get(UserEndpoints.GET_USER);
 
+        finalResponse = response.asPrettyString();
         Assert.assertEquals(response.statusCode(), 401);
 
         JsonPath jsonPath = response.jsonPath();

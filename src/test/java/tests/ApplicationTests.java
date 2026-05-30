@@ -1,6 +1,7 @@
 package tests;
 
-import com.automation.hook.BaseEngine;
+import com.automation.hook.BaseWebEngine;
+import com.automation.hook.BaseWebEngine;
 import com.automation.listeners.TestListener;
 import com.automation.pageFactory.AddCartPage;
 import com.automation.pageFactory.LoginPage;
@@ -9,7 +10,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestListener.class)
-public class ApplicationTests extends BaseEngine {
+public class ApplicationTests extends BaseWebEngine {
 
     //  Register a new user account.
     @Test

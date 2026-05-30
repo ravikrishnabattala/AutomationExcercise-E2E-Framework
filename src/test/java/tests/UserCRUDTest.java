@@ -1,11 +1,13 @@
 package tests;
 
 import com.automation.endpoints.UserEndpoints;
-import com.automation.hook.BaseEngine;
+import com.automation.hook.BaseAPIEngine;
+import com.automation.listeners.TestListener;
 import com.automation.payloads.UserPayload;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -13,7 +15,8 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class UserCRUDTest extends BaseEngine {
+@Listeners(TestListener.class)
+public class UserCRUDTest extends BaseAPIEngine {
 
     static int userId = 1;
     private static final String xAPIKey = "free_user_3EP3yNsBVK9L6ejDWfwwcxkO12Y";
@@ -38,6 +41,7 @@ public class UserCRUDTest extends BaseEngine {
         Assert.assertEquals(jsonPath.getString("data.last_name"), "Bluth");
         Assert.assertEquals(jsonPath.getString("data.avatar"), "https://reqres.in/img/faces/1-image.jpg");
     }
+
     @Test(priority = 1)
     public void createUser() {
 
@@ -64,11 +68,11 @@ public class UserCRUDTest extends BaseEngine {
 
 
     @Test(priority = 2)
-    public void loginUser(){
+    public void loginUser() {
         UserPayload payload =
                 new UserPayload("eve.holt@reqres.in", "cityslicka");
         Response response = given()
-                .header("x-api-key",xAPIKey)
+                .header("x-api-key", xAPIKey)
                 .header("Content-Type", "application/json")
                 .body(payload)
                 .when()
@@ -78,7 +82,7 @@ public class UserCRUDTest extends BaseEngine {
 
         JsonPath jsonPath = response.jsonPath();
         Assert.assertEquals(response.statusCode(), 200);
-        System.out.println("Token :"+jsonPath.getString("token"));
+        System.out.println("Token :" + jsonPath.getString("token"));
     }
 
     @Test(priority = 3)
@@ -88,7 +92,7 @@ public class UserCRUDTest extends BaseEngine {
                 new UserPayload("lindsay.ferguson@reqres.in", "Lindsay");
 
         Response response = given()
-                .header("x-api-key",xAPIKey)
+                .header("x-api-key", xAPIKey)
                 .header("Content-Type", "application/json")
                 .pathParam("id", userId)
                 .body(payload)
@@ -102,14 +106,14 @@ public class UserCRUDTest extends BaseEngine {
         JsonPath jsonPath = response.jsonPath();
         Assert.assertEquals(jsonPath.getString("email"), payload.getEmail());
         Assert.assertEquals(jsonPath.getString("password"), payload.getPassword());
-        System.out.println("Update user at :"+jsonPath.getString("updatedAt"));
+        System.out.println("Update user at :" + jsonPath.getString("updatedAt"));
     }
 
     @Test(priority = 4)
     public void deleteUser() {
 
         Response response = given()
-                .header("x-api-key",xAPIKey)
+                .header("x-api-key", xAPIKey)
                 .pathParam("id", userId)
                 .when()
                 .delete(UserEndpoints.DELETE_USER);
