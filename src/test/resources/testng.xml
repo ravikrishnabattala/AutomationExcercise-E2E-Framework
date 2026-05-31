@@ -22,7 +22,7 @@
     </test>
     <test name="Mobile Application Tests">
         <classes>
-            <class name="tests.MobileTest"/>
+            <class name="tests.MobileAppTest"/>
         </classes>
     </test>
 </suite>

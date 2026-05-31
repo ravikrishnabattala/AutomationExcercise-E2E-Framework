@@ -7,7 +7,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestListener.class)
-public class MobileTest extends BaseMobileEngine {
+public class MobileAppTest extends BaseMobileEngine {
 
     @Test
     public void calculator(){
