@@ -15,9 +15,9 @@ import java.time.Duration;
 import java.util.Collections;
 import java.util.Set;
 
-public class DriverManager {
+public class WebDriverManager {
 
-    private DriverManager() {
+    private WebDriverManager() {
     }
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();

@@ -1,12 +1,13 @@
 package com.automation.utilities;
 
-import com.automation.driverFactory.DriverManager;
+import com.automation.driverFactory.WebDriverManager;
+import com.automation.driverFactory.MobileDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 import java.io.File;
-import java.io.IOException;
 
 public class ScreenshotUtils {
 
@@ -14,16 +15,17 @@ public class ScreenshotUtils {
     }
 
     public static String takeScreenshot(String testName) {
-        File source = ((TakesScreenshot) DriverManager.getDriver())
-                        .getScreenshotAs(OutputType.FILE);
-        String path = "test-output/screenshots/" + testName + "_" + System.currentTimeMillis() + ".png";
-
         try {
+            WebDriver driver = WebDriverManager.getDriver();
+            if (driver == null) {
+               driver = MobileDriverManager.getDriver();
+            }
+            File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            String path = "test-output/screenshots/" + testName + "_" + System.currentTimeMillis() + ".png";
             FileUtils.copyFile(source, new File(path));
-        } catch (IOException e) {
-            e.printStackTrace();
+            return path;
+        } catch (Exception e) {
             return null;
         }
-        return path;
     }
 }

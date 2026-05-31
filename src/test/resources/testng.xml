@@ -4,20 +4,25 @@
     <listeners>
         <listener class-name="com.automation.listeners.TestListener"/>
     </listeners>
-    <test name="WebTests">
+    <test name="Web Application Tests">
         <classes>
             <class name="tests.WebAppTest"/>
         </classes>
     </test>
-    <test name="WindowsTests">
+    <test name="Desktop Application Tests">
         <classes>
             <class name="tests.DesktopAppTest"/>
         </classes>
     </test>
-    <test name="ReqRes API Tests">
+    <test name="Rest API Tests">
         <classes>
             <class name="tests.UserCRUDAPITest"/>
             <class name="tests.NegativeAPITest"/>
+        </classes>
+    </test>
+    <test name="Mobile Application Tests">
+        <classes>
+            <class name="tests.MobileTest"/>
         </classes>
     </test>
 </suite>

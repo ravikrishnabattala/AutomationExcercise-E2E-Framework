@@ -1,6 +1,6 @@
 package com.automation.utilities;
 
-import com.automation.driverFactory.DriverManager;
+import com.automation.driverFactory.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
@@ -9,7 +9,7 @@ public class JavaScriptUtils{
     public void click(WebElement element) {
 
         scroll(element);
-        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) WebDriverManager.getDriver();
         js.executeScript(
                 "arguments[0].click();", element
         );
@@ -17,7 +17,7 @@ public class JavaScriptUtils{
 
     public void scroll(WebElement element) {
 
-        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) WebDriverManager.getDriver();
         js.executeScript(
                 "arguments[0].scrollIntoView(true);",
                 element

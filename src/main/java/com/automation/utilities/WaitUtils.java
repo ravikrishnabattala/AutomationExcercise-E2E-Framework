@@ -1,6 +1,6 @@
 package com.automation.utilities;
 
-import com.automation.driverFactory.DriverManager;
+import com.automation.driverFactory.WebDriverManager;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +19,7 @@ public class WaitUtils {
     public static void waitForVisibility(WebElement element) {
 
         new WebDriverWait(
-                DriverManager.getDriver(),
+                WebDriverManager.getDriver(),
                 Duration.ofSeconds(
                         Long.parseLong(ConfigReader.getProperty("explicit.wait"))
                 )
@@ -31,7 +31,7 @@ public class WaitUtils {
     public static void waitForClickable(WebElement element) {
 
         new WebDriverWait(
-                DriverManager.getDriver(),
+                WebDriverManager.getDriver(),
                 Duration.ofSeconds(
                         Long.parseLong(ConfigReader.getProperty("explicit.wait"))
                 )
@@ -41,7 +41,7 @@ public class WaitUtils {
     }
 
     public static void fluentWait(WebElement element) {
-        FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver>(DriverManager.getDriver())
+        FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver>(WebDriverManager.getDriver())
                 .withTimeout(Duration.ofSeconds(Long.parseLong(ConfigReader.getProperty("fluent.wait"))))
                 .pollingEvery(Duration.ofSeconds(2))
                 .ignoring(NoSuchElementException.class)

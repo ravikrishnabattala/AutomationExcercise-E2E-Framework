@@ -1,6 +1,6 @@
 package com.automation.pageFactory;
 
-import com.automation.driverFactory.DriverManager;
+import com.automation.driverFactory.WebDriverManager;
 import com.automation.utilities.JavaScriptUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +26,7 @@ public class AddCartPage {
     private final By cartItemsDetails = By.xpath("//tbody//tr[@id='product-1']/td");
 
     public AddCartPage() {
-        this.driver = DriverManager.getDriver();
+        this.driver = WebDriverManager.getDriver();
         this.js = new JavaScriptUtils();
     }
 

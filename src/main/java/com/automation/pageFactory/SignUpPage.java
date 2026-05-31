@@ -1,6 +1,6 @@
 package com.automation.pageFactory;
 
-import com.automation.driverFactory.DriverManager;
+import com.automation.driverFactory.WebDriverManager;
 import com.automation.utilities.JavaScriptUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -48,7 +48,7 @@ public class SignUpPage {
     private final By continueBtn = By.xpath("//a[text()='Continue']");
 
     public SignUpPage() {
-        this.driver = DriverManager.getDriver();
+        this.driver = WebDriverManager.getDriver();
         this.js = new JavaScriptUtils();
     }
 

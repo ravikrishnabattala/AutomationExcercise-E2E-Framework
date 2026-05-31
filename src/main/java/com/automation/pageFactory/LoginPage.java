@@ -1,12 +1,10 @@
 package com.automation.pageFactory;
 
-import com.automation.driverFactory.DriverManager;
+import com.automation.driverFactory.WebDriverManager;
 import com.automation.utilities.ConfigReader;
 import com.automation.utilities.JavaScriptUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import java.util.Random;
 
 public class LoginPage {
 
@@ -34,7 +32,7 @@ public class LoginPage {
 
     public LoginPage() {
         this.js = new JavaScriptUtils();
-        this.driver = DriverManager.getDriver();
+        this.driver = WebDriverManager.getDriver();
     }
 
     public LoginPage signUpIn() {
