@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 
-public class NotepadAutomationTest {
+public class DesktopAppTest {
 
     WindowsDriver driver;
     String filePath;

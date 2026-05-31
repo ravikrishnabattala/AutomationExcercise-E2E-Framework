@@ -6,18 +6,18 @@
     </listeners>
     <test name="WebTests">
         <classes>
-            <class name="tests.ApplicationTests"/>
+            <class name="tests.WebAppTest"/>
         </classes>
     </test>
     <test name="WindowsTests">
         <classes>
-            <class name="tests.NotepadAutomationTest"/>
+            <class name="tests.DesktopAppTest"/>
         </classes>
     </test>
     <test name="ReqRes API Tests">
         <classes>
-            <class name="tests.UserCRUDTest"/>
-            <class name="tests.NegativeTest"/>
+            <class name="tests.UserCRUDAPITest"/>
+            <class name="tests.NegativeAPITest"/>
         </classes>
     </test>
 </suite>

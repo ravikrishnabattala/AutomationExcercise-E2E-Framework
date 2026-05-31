@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class NegativeTest extends BaseAPIEngine {
+public class NegativeAPITest extends BaseAPIEngine {
 
     private static final String xAPIKey = "free_user_3EP3yNsBVK9L6ejDWfwwcxkO12Y";
 

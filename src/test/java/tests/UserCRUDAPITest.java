@@ -16,7 +16,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 
 @Listeners(TestListener.class)
-public class UserCRUDTest extends BaseAPIEngine {
+public class UserCRUDAPITest extends BaseAPIEngine {
 
     static int userId = 1;
     private static final String xAPIKey = "free_user_3EP3yNsBVK9L6ejDWfwwcxkO12Y";
