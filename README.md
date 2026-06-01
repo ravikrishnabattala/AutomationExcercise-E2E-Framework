@@ -30,15 +30,62 @@ It supports **cross-browser testing, parallel execution, and reporting**.
 
 ```text
 src
- ├── main/java/com/automation
- │    ├── driverFactory
- │    ├── pageFactory
- │    ├── utilities
- │    ├── base
- │    └── hook
- │
- ├── test/java/tests
- └── test/resources/testng.xml
+├───main
+│   ├───java
+│   │   └───com
+│   │       └───automation
+│   │           ├───apps
+│   │           │       Calculator.java
+│   │           │
+│   │           ├───driverFactory
+│   │           │       MobileDriverManager.java
+│   │           │       WebDriverManager.java
+│   │           │       WindowsDriverManager.java
+│   │           │
+│   │           ├───endpoints
+│   │           │       UserEndpoints.java
+│   │           │
+│   │           ├───hook
+│   │           │       BaseAPIEngine.java
+│   │           │       BaseMobileEngine.java
+│   │           │       BaseWebEngine.java
+│   │           │
+│   │           ├───listeners
+│   │           │       TestListener.java
+│   │           │
+│   │           ├───pageFactory
+│   │           │       AddCartPage.java
+│   │           │       LoginPage.java
+│   │           │       SignUpPage.java
+│   │           │
+│   │           ├───payloads
+│   │           │       UserPayload.java
+│   │           │
+│   │           ├───utilities
+│   │           │       ConfigReader.java
+│   │           │       ExtentManager.java
+│   │           │       JavaScriptUtils.java
+│   │           │       ScreenshotUtils.java
+│   │           │       WaitUtils.java
+│   │           │
+│   │           └───windows
+│   │                   NotepadPage.java
+│   │
+│   └───resources
+└───test
+    ├───java
+    │   └───tests
+    │           DesktopAppTest.java
+    │           MobileAppTest.java
+    │           NegativeAPITest.java
+    │           UserCRUDAPITest.java
+    │           WebAppTest.java
+    │
+    └───resources
+            application.properties
+            config-qa.properties
+            testng.xml
+
 
 ##  Run Tests
 
