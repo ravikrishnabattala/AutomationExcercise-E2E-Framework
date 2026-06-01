@@ -53,7 +53,6 @@ public class WebDriverManager {
         }
         driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(ConfigReader.getProperty("implicit.wait"))));
         driver.get().manage().window().setPosition(new Point(0, 0));
-        driver.get().manage().window().maximize();
         driver.get().manage().window().fullscreen();
         driver.get().manage().window().setSize(new Dimension(1920, 1080));
     }

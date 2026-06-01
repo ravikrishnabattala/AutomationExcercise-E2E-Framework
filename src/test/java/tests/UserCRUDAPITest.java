@@ -4,6 +4,7 @@ import com.automation.endpoints.UserEndpoints;
 import com.automation.hook.BaseAPIEngine;
 import com.automation.listeners.TestListener;
 import com.automation.payloads.UserPayload;
+import com.automation.utilities.ConfigReader;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -19,7 +20,7 @@ import static io.restassured.RestAssured.given;
 public class UserCRUDAPITest extends BaseAPIEngine {
 
     static int userId = 1;
-    private static final String xAPIKey = "free_user_3EP3yNsBVK9L6ejDWfwwcxkO12Y";
+    private static final String xAPIKey = ConfigReader.getProperty("xAPIKey");
 
     @Test(priority = 0)
     public void getUser() {

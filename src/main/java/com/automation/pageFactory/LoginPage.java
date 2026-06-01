@@ -53,8 +53,10 @@ public class LoginPage {
 
     public LoginPage login() {
         signUpIn();
-        driver.findElement(loginEmail).sendKeys("ravikrishnabattala@gmail.com");
-        driver.findElement(loginPassword).sendKeys("12345678");
+        String email = ConfigReader.getProperty("userId");
+        String password = ConfigReader.getProperty("password");
+        driver.findElement(loginEmail).sendKeys(email);
+        driver.findElement(loginPassword).sendKeys(password);
         js.click(driver.findElement(loginBtn));
         return this;
     }

@@ -13,6 +13,9 @@ public class TestListener implements ITestListener {
     private static ExtentReports extent = ExtentManager.getInstance();
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
+    public static ExtentTest getCurrentTest() {
+        return test.get();
+    }
     @Override
     public void onTestStart(ITestResult result) {
         ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());

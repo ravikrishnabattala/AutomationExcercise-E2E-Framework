@@ -79,8 +79,8 @@ public class SignUpPage {
         driver.findElement(cityField).sendKeys("Chennai");
         driver.findElement(zipCodeField).sendKeys("600063");
         driver.findElement(mobileField).sendKeys("7893101744");
-        driver.findElement(createAccountBtn).click();
-        driver.findElement(continueBtn).click();
+        js.click(driver.findElement(createAccountBtn));
+        js.click(driver.findElement(continueBtn));
         return this;
     }
 
