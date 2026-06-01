@@ -31,6 +31,7 @@ public class UserCRUDAPITest extends BaseAPIEngine {
                 .when()
                 .get(UserEndpoints.GET_USER);
 
+        finalResponse = response.asPrettyString();
         response.then().log().all();
 
         JsonPath jsonPath = response.jsonPath();
@@ -56,6 +57,7 @@ public class UserCRUDAPITest extends BaseAPIEngine {
                 .when()
                 .post(UserEndpoints.CREATE_USER);
 
+        finalResponse = response.asPrettyString();
         response.then().log().all();
         JsonPath jsonPath = response.jsonPath();
 
@@ -79,6 +81,7 @@ public class UserCRUDAPITest extends BaseAPIEngine {
                 .when()
                 .post(UserEndpoints.LOGIN_USER);
 
+        finalResponse = response.asPrettyString();
         response.then().log().all();
 
         JsonPath jsonPath = response.jsonPath();
@@ -100,8 +103,8 @@ public class UserCRUDAPITest extends BaseAPIEngine {
                 .when()
                 .put(UserEndpoints.UPDATE_USER);
 
+        finalResponse = response.asPrettyString();
         response.then().log().all();
-
         Assert.assertEquals(response.statusCode(), 200);
 
         JsonPath jsonPath = response.jsonPath();
@@ -119,6 +122,7 @@ public class UserCRUDAPITest extends BaseAPIEngine {
                 .when()
                 .delete(UserEndpoints.DELETE_USER);
 
+        finalResponse = response.asPrettyString();
         response.then().log().all();
 
         Assert.assertEquals(response.statusCode(), 204);
